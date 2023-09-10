@@ -9,13 +9,11 @@ import (
 	_ "embed"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
-
-	"github.com/upbound/upjet-provider-template/config/null"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/upbound/upjet-provider-template"
+	resourcePrefix = "portlabs"
+	modulePath     = "github.com/haarchri/provider-portlabs"
 )
 
 //go:embed schema.json
@@ -27,8 +25,8 @@ var providerMetadata string
 // GetProvider returns provider configuration
 func GetProvider() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
-		ujconfig.WithRootGroup("template.upbound.io"),
-		ujconfig.WithIncludeList(ExternalNameConfigured()),
+		ujconfig.WithRootGroup("getport.io"),
+		ujconfig.WithIncludeList(ResourcesWithExternalNameConfig()),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
 			ExternalNameConfigurations(),
@@ -36,11 +34,24 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		// null.Configure,
 	} {
 		configure(pc)
 	}
 
 	pc.ConfigureResources()
 	return pc
+}
+
+// ResourcesWithExternalNameConfig returns the list of resources that have external
+// name configured in ExternalNameConfigs table.
+func ResourcesWithExternalNameConfig() []string {
+	l := make([]string, len(ExternalNameConfigs))
+	i := 0
+	for name := range ExternalNameConfigs {
+		// Expected format is regex and we'd like to have exact matches.
+		l[i] = name + "$"
+		i++
+	}
+	return l
 }

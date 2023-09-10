@@ -9,8 +9,11 @@ import "github.com/upbound/upjet/pkg/config"
 // ExternalNameConfigs contains all external name configurations for this
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
-	// Import requires using a randomly generated ID from provider: nl-2e21sda
-	"null_resource": config.IdentifierFromProvider,
+	// "port_action": config.IdentifierFromProvider,
+	// "port_blueprint": config.IdentifierFromProvider,
+	// "port_entity":    config.IdentifierFromProvider,
+	// "port_scorecard": config.IdentifierFromProvider,
+	// "port_webhook": config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
@@ -22,17 +25,4 @@ func ExternalNameConfigurations() config.ResourceOption {
 			r.ExternalName = e
 		}
 	}
-}
-
-// ExternalNameConfigured returns the list of all resources whose external name
-// is configured manually.
-func ExternalNameConfigured() []string {
-	l := make([]string, len(ExternalNameConfigs))
-	i := 0
-	for name := range ExternalNameConfigs {
-		// $ is added to match the exact string since the format is regex.
-		l[i] = name + "$"
-		i++
-	}
-	return l
 }

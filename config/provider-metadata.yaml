@@ -1,9 +1,213 @@
-name: hashicorp/null
+name: port-labs/port-labs
 resources:
-    null_resource Resource - terraform-provider-null:
+    port_action Resource - terraform-provider-port-labs:
         subCategory: ""
-        description: The null_resource resource implements the standard resource lifecycle but takes no further action. The triggers argument allows specifying an arbitrary set of values that, when changed, will cause the resource to be replaced.
-        name: null_resource Resource - terraform-provider-null
-        title: null_resource Resource - terraform-provider-null
-        argumentDocs: {}
+        description: Action resource
+        name: port_action Resource - terraform-provider-port-labs
+        title: port_action Resource - terraform-provider-port-labs
+        argumentDocs:
+            agent: (Boolean) Use the agent to invoke the action
+            approval_email_notification: (Object) The email notification of the approval (see below for nested schema)
+            approval_webhook_notification: (Attributes) The webhook notification of the approval (see below for nested schema)
+            array_props: (Attributes Map) The array property of the action (see below for nested schema)
+            azure_method: (Attributes) The invocation method of the action (see below for nested schema)
+            blueprint: (String) The blueprint identifier the action relates to
+            boolean_items: (Attributes) The items of the array property (see below for nested schema)
+            boolean_props: (Attributes Map) The boolean property of the action (see below for nested schema)
+            combinator: (String) The combinator of the dataset
+            dataset: (Attributes) The dataset of the property (see below for nested schema)
+            default: (List of Boolean) The default of the items
+            default_jq_query: (String) The default jq query of the array property
+            default_ref: (String) The default ref of the action
+            depends_on: (List of String) The properties that this property depends on
+            description: (String) Description
+            enum: (List of Number) The enum of the items
+            enum_jq_query: (String) The enum jq query of the number items
+            format: (String) The format of the items
+            github_method: (Attributes) The invocation method of the action (see below for nested schema)
+            gitlab_method: (Attributes) The invocation method of the action (see below for nested schema)
+            group_name: (String) Required when selecting type GITLAB. The GitLab group name that the workflow belongs to
+            icon: (String) Icon
+            id: (String) The ID of this resource.
+            identifier: (String) Identifier
+            jq_query: (String)
+            kafka_method: (Object) The invocation method of the action (see below for nested schema)
+            max_items: (Number) The max items of the array property
+            max_length: (Number) The max length of the string property
+            maximum: (Number) The min of the number property
+            min_items: (Number) The min items of the array property
+            min_length: (Number) The min length of the string property
+            minimum: (Number) The max of the number property
+            number_items: (Attributes) The items of the array property (see below for nested schema)
+            number_props: (Attributes Map) The number property of the action (see below for nested schema)
+            object_items: (Attributes) The items of the array property (see below for nested schema)
+            object_props: (Attributes Map) The object property of the action (see below for nested schema)
+            omit_payload: (Boolean) Omit the payload when invoking the action
+            omit_user_inputs: (Boolean) Omit the user inputs when invoking the action
+            operator: (String) The operator of the rule
+            order_properties: (List of String) Order properties
+            org: (String) Required when selecting type AZURE. The Azure org that the workflow belongs to
+            pattern: (String) The pattern of the string property
+            project_name: (String) Required when selecting type GITLAB. The GitLab project name that the workflow belongs to
+            property: (String) The property identifier of the rule
+            repo: (String) Required when selecting type GITHUB. The GitHub repo that the workflow belongs to
+            report_workflow_status: (Boolean) Report the workflow status when invoking the action
+            required: (Boolean) Whether the property is required
+            required_approval: (Boolean) Require approval before invoking the action
+            rules: (Attributes List) The rules of the dataset (see below for nested schema)
+            string_items: (Attributes) The items of the array property (see below for nested schema)
+            string_props: (Attributes Map) The string property of the action (see below for nested schema)
+            title: (String) Title
+            trigger: (String) The trigger type of the action
+            url: (String) The URL to invoke the webhook
+            user_properties: (Attributes) User properties (see below for nested schema)
+            value: (Object) The value of the rule (see below for nested schema)
+            webhook: (String) Required when selecting type AZURE. The Azure webhook that the workflow belongs to
+            webhook_method: (Attributes) The invocation method of the action (see below for nested schema)
+            workflow: (String) The GitHub workflow that the action belongs to
+        importStatements: []
+    port_blueprint Resource - terraform-provider-port-labs:
+        subCategory: ""
+        description: Blueprint Resource
+        name: port_blueprint Resource - terraform-provider-port-labs
+        title: port_blueprint Resource - terraform-provider-port-labs
+        argumentDocs:
+            agent: (Boolean) The agent of the webhook changelog destination
+            array_props: (Attributes Map) The array property of the blueprint (see below for nested schema)
+            authorization_url: (String) The authorizationUrl of the spec authentication
+            boolean_items: (Attributes) The items of the array property (see below for nested schema)
+            boolean_props: (Attributes Map) The boolean property of the blueprint (see below for nested schema)
+            calculation: (String) The calculation of the calculation property
+            calculation_properties: (Attributes Map) The calculation properties of the blueprint (see below for nested schema)
+            client_id: (String) The clientId of the spec authentication
+            colorized: (Boolean) The colorized of the calculation property
+            colors: (Map of String) The colors of the calculation property
+            created_at: (String) The creation date of the blueprint
+            created_by: (String) The creator of the blueprint
+            default: (List of Boolean) The default of the items
+            description: (String) The description of the blueprint
+            enum: (List of Number) The enum of the number property
+            enum_colors: (Map of String) The enum colors of the number property
+            format: (String) The format of the calculation property
+            icon: (String) The icon of the blueprint
+            id: (String) The ID of this resource.
+            identifier: (String) The identifier of the blueprint
+            kafka_changelog_destination: (Object) The changelog destination of the blueprint (see below for nested schema)
+            many: (Boolean) The many of the relation
+            max_items: (Number) The max items of the array property
+            max_length: (Number) The max length of the string property
+            maximum: (Number) The min of the number property
+            min_items: (Number) The min items of the array property
+            min_length: (Number) The min length of the string property
+            minimum: (Number) The max of the number property
+            mirror_properties: (Attributes Map) The mirror properties of the blueprint (see below for nested schema)
+            number_items: (Attributes) The items of the array property (see below for nested schema)
+            number_props: (Attributes Map) The number property of the blueprint (see below for nested schema)
+            object_items: (Attributes) The items of the array property (see below for nested schema)
+            object_props: (Attributes Map) The object property of the blueprint (see below for nested schema)
+            path: (String) The path of the mirror property
+            pattern: (String) The pattern of the string property
+            properties: (Attributes) The properties of the blueprint (see below for nested schema)
+            relations: (Attributes Map) The relations of the blueprint (see below for nested schema)
+            required: (Boolean) Whether the property is required
+            spec: (String) The spec of the object property
+            spec_authentication: (Attributes) The spec authentication of the string property (see below for nested schema)
+            string_items: (Attributes) The items of the array property (see below for nested schema)
+            string_props: (Attributes Map) The string property of the blueprint (see below for nested schema)
+            target: (String) The target of the relation
+            team_inheritance: (Attributes) The team inheritance of the blueprint (see below for nested schema)
+            title: (String) The display name of the blueprint
+            token_url: (String) The tokenUrl of the spec authentication
+            type: (String) The type of the calculation property
+            updated_at: (String) The last update date of the blueprint
+            updated_by: (String) The last updater of the blueprint
+            url: (String) The url of the webhook changelog destination
+            webhook_changelog_destination: (Attributes) The webhook changelog destination of the blueprint (see below for nested schema)
+        importStatements: []
+    port_entity Resource - terraform-provider-port-labs:
+        subCategory: ""
+        description: Entity resource
+        name: port_entity Resource - terraform-provider-port-labs
+        title: port_entity Resource - terraform-provider-port-labs
+        argumentDocs:
+            array_props: (Attributes) The array properties of the entity (see below for nested schema)
+            blueprint: (String) The blueprint identifier the entity relates to
+            boolean_items: (Map of List of Boolean)
+            boolean_props: (Map of Boolean) The bool properties of the entity
+            created_at: (String) The creation date of the entity
+            created_by: (String) The creator of the entity
+            icon: (String) The icon of the entity
+            id: (String) The ID of this resource.
+            identifier: (String) The identifier of the entity
+            many_relations: (Map of List of String) The many relation of the entity
+            number_items: (Map of List of Number)
+            number_props: (Map of Number) The number properties of the entity
+            object_items: (Map of List of String)
+            object_props: (Map of String) The object properties of the entity
+            properties: (Attributes) The properties of the entity (see below for nested schema)
+            relations: (Attributes) The relations of the entity (see below for nested schema)
+            run_id: (String) The runID of the action run that created the entity
+            single_relations: (Map of String) The single relation of the entity
+            string_items: (Map of List of String)
+            string_props: (Map of String) The string properties of the entity
+            teams: (List of String) The teams the entity belongs to
+            title: (String) The title of the entity
+            updated_at: (String) The last update date of the entity
+            updated_by: (String) The last updater of the entity
+        importStatements: []
+    port_scorecard Resource - terraform-provider-port-labs:
+        subCategory: ""
+        description: scorecard resource
+        name: port_scorecard Resource - terraform-provider-port-labs
+        title: port_scorecard Resource - terraform-provider-port-labs
+        argumentDocs:
+            blueprint: (String) The blueprint of the scorecard
+            combinator: (String) The combinator of the query
+            conditions: (Attributes List) The conditions of the query (see below for nested schema)
+            created_at: (String) The creation date of the scorecard
+            created_by: (String) The creator of the scorecard
+            id: (String) The ID of this resource.
+            identifier: (String) The identifier of the scorecard
+            level: (String) The level of the rule
+            operator: (String) The operator of the condition
+            property: (String) The property of the condition
+            query: (Attributes) The query of the rule (see below for nested schema)
+            rules: (Attributes List) The rules of the scorecard (see below for nested schema)
+            title: (String) The title of the scorecard
+            updated_at: (String) The last update date of the scorecard
+            updated_by: (String) The last updater of the scorecard
+            value: (String) The value of the condition
+        importStatements: []
+    port_webhook Resource - terraform-provider-port-labs:
+        subCategory: ""
+        description: Webhook resource
+        name: port_webhook Resource - terraform-provider-port-labs
+        title: port_webhook Resource - terraform-provider-port-labs
+        argumentDocs:
+            blueprint: (String) The blueprint of the mapping
+            created_at: (String) The creation date of the webhook
+            created_by: (String) The creator of the webhook
+            description: (String) The description of the webhook
+            enabled: (Boolean) Whether the webhook is enabled
+            entity: (Attributes) The entity of the mapping (see below for nested schema)
+            filter: (String) The filter of the mapping
+            icon: (String) The icon of the webhook
+            id: (String) The ID of this resource.
+            identifier: (String) The identifier of the webhook
+            items_to_parse: (String) The items to parser of the mapping
+            mappings: (Attributes List) The mappings of the webhook (see below for nested schema)
+            properties: (Map of String) The properties of the entity
+            relations: (Map of String) The relations of the entity
+            request_identifier_path: (String) The request identifier path of the webhook
+            secret: (String) The secret of the webhook
+            security: (Attributes) The security of the webhook (see below for nested schema)
+            signature_algorithm: (String) The signature algorithm of the webhook
+            signature_header_name: (String) The signature header name of the webhook
+            signature_prefix: (String) The signature prefix of the webhook
+            team: (String) The team of the entity
+            title: (String) The title of the webhook
+            updated_at: (String) The last update date of the webhook
+            updated_by: (String) The last updater of the webhook
+            url: (String) The url of the webhook
+            webhook_key: (String) The webhook key of the webhook
         importStatements: []
